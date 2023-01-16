@@ -68,6 +68,7 @@ jobs:
           PG_USER: postgres
         run: |
           bin/rails db:create
+          bin/rails db:migrate
           bin/rails db:test:prepare
           bin/rails test
 
