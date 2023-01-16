@@ -4,18 +4,7 @@ on:
     types: [opened]
   issue_comment:
     types: [created]
-jobs:
-  Trigger:
-    steps:
-      - uses: khan/pull-request-comment-trigger@v1.1.0
-        id: check
-        with:
-          trigger: '@deploy'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
-        if: steps.check.outputs.triggered == 'true'
+jobs:      
   Test:
     runs-on: ubuntu-latest
     services:
@@ -27,6 +16,16 @@ jobs:
         ports: ['5432:5432']
 
     steps:
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: '@deploy'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - run: 'echo Found it!'
+        if: steps.check.outputs.triggered == 'true'
+
       - uses: actions/checkout@v3
 
       - name: Setup Ruby 3.1.1
@@ -78,13 +77,6 @@ jobs:
           bundle exec rails db:migrate
           RAILS_ENV=test bundle exec rake
 
-  Deploy:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    needs: Test
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
       - name: Deploy To Heroku
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
