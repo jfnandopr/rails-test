@@ -1,12 +1,19 @@
 name: CI/CD
 on:
   pull_request:
-    branches:
-      - '*'
-  push:
-    branches:
-      - main
+    types: [opened]
 jobs:
+  Trigger:
+    steps:
+      - uses: khan/pull-request-comment-trigger@v1.1.0
+        id: check
+        with:
+          trigger: '@deploy'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - run: 'echo Found it!'
+        if: steps.check.outputs.triggered == 'true'
   Test:
     runs-on: ubuntu-latest
     services:
@@ -80,5 +87,6 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "rails-test-jemerson"
+          heroku_app_name: "rails-test-jemerson-staging"
           heroku_email: "jfnandopr@gmail.com"
+          dontautocreate: true
