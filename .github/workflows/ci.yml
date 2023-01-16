@@ -70,7 +70,7 @@ jobs:
           RAILS_ENV=test bundle exec rake
 
   Deploy:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
     needs: Test
     runs-on: ubuntu-latest
 
