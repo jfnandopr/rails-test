@@ -70,5 +70,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   # Use PostgreSQL as the database for Active Record
-  gem "pg"
+  gem 'pg'
 end
