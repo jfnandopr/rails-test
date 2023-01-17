@@ -7,12 +7,12 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get pets_url
-    assert_response :error
+    assert_response :success
   end
 
   test "should get new" do
     get new_pet_url
-    assert_response :error
+    assert_response :success
   end
 
   test "should create pet" do
