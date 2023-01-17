@@ -168,6 +168,7 @@ GEM
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rollbar (3.4.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -222,6 +223,7 @@ DEPENDENCIES
   pg
   puma (~> 6.0)
   rails (~> 7.0.3, >= 7.0.3.1)
+  rollbar
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.6)
