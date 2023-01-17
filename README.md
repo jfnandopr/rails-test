@@ -1,5 +1,7 @@
 # README
 
+[![CI/CD](https://github.com/MaiaDevelopment/rails-test/actions/workflows/cicd.yml/badge.svg)](https://github.com/MaiaDevelopment/rails-test/actions/workflows/cicd.yml)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
