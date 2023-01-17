@@ -7,7 +7,7 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get pets_url
-    assert_response :success
+    assert_response :error
   end
 
   test "should get new" do
@@ -25,7 +25,7 @@ class PetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show pet" do
     get pet_url(@pet)
-    assert_response :error
+    assert_response :success
   end
 
   test "should get edit" do

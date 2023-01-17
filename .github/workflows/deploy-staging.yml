@@ -14,7 +14,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: password
         ports: ['5432:5432']
-    steps:
+    steps: 
       - uses: khan/pull-request-comment-trigger@v1.1.0
         id: check
         with:
@@ -22,6 +22,13 @@ jobs:
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
       - run: 'echo Found it!'
         if: steps.check.outputs.triggered == 'true'
 
