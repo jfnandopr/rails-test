@@ -104,3 +104,10 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "rails-test-jemerson-staging"
           heroku_email: "jfnandopr@gmail.com"
+
+      - uses: christianvuerings/add-labels@v1
+        with:
+          labels: |
+            stating
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

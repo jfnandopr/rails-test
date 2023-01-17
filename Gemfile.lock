@@ -124,6 +124,7 @@ GEM
       timeout
     net-smtp (0.3.3)
       net-protocol
+    newrelic_rpm (8.15.0)
     nio4r (2.5.8)
     nokogiri (1.13.10-arm64-darwin)
       racc (~> 1.4)
@@ -168,6 +169,7 @@ GEM
     reline (0.3.2)
       io-console (~> 0.5)
     rexml (3.2.5)
+    rollbar (3.4.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
@@ -219,9 +221,11 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  newrelic_rpm
   pg
   puma (~> 6.0)
   rails (~> 7.0.3, >= 7.0.3.1)
+  rollbar
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.6)
