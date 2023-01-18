@@ -105,9 +105,6 @@ jobs:
           heroku_app_name: "rails-test-jemerson-staging"
           heroku_email: "jfnandopr@gmail.com"
 
-      - uses: christianvuerings/add-labels@v1
+      - uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: |
-            stating
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          labels: bug
