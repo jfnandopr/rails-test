@@ -5,6 +5,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     services:
       postgres:
         image: postgres:12
@@ -17,7 +19,7 @@ jobs:
         id: check
         with:
           trigger: '@staging'
-          reaction: rocket
+          reaction: eyes
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
 
@@ -108,3 +110,9 @@ jobs:
       - uses: actions-ecosystem/action-add-labels@v1
         with:
           labels: staging
+
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            **Staging deployed** :rocket:
+            we can send slack message
