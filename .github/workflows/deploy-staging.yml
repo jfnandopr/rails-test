@@ -16,7 +16,7 @@ jobs:
       - uses: khan/pull-request-comment-trigger@v1.1.0
         id: check
         with:
-          trigger: '@deploy'
+          trigger: '@staging'
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
@@ -107,4 +107,4 @@ jobs:
 
       - uses: actions-ecosystem/action-add-labels@v1
         with:
-          labels: bug
+          labels: staging
