@@ -29,7 +29,7 @@ jobs:
         run: |
           echo "$GITHUB_CONTEXT"
 
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v6
         id: get-pr
         with:
           script: |
