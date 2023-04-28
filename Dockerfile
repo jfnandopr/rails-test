@@ -5,7 +5,7 @@ FROM $RUBY_VERSION AS builder
 RUN apk add \
   build-base \
   postgresql-dev
-COPY Gemfile* .
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 # runner
